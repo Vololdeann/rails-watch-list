@@ -13,6 +13,9 @@
 }
 
 .card-product {
+  padding: 20 px;
+  margin-bottom: 50px;
+  margin-top: 20px;
   overflow: hidden;
   height: 120px;
   background: white;
@@ -42,5 +45,10 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 20px;
+  margin: 20px 20px;
+}
+
+.card {
+  display: flex;
 }
