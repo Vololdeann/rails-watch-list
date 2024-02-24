@@ -1,26 +1,23 @@
 <div class="container mb-5">
-  <div class="jumbotron" style="background-image: url('https://static.vecteezy.com/system/resources/previews/011/598/289/original/blank-smartphone-with-popcorn-film-strip-clapperboard-on-blue-background-online-streaming-movie-concept-iluustration-free-vector.jpg'); background-size: cover; background-position: center;">
+  <div class="jumbotron" style="background-image: url(<% @bookmarks.first.movie.poster_url %>)>
     <p class="lead"><strong>Save any kind of films!</strong></p>
     <hr class="my-4">
   </div>
 
-
   <h1><%= @list.name %></h1>
   <%= link_to "add a movie", new_list_bookmark_path(@list), class: "btn btn-primary" %>
   <%= link_to "delete this list", list_path(:id_list), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-
-
-
-
+  <%= link_to "back to my lists", lists_path(@list) %>  <i class="fa-solid fa-arrow-rotate-left"></i>
 
   <% @bookmarks.each do |bookmark| %>
     <div class="card-product">
       <img src="<%= bookmark.movie.poster_url%>">
         <div class="card-product-infos">
-          <h2><strong>Title: <%= bookmark.movie.title %></strong></h2>
-          <p>Rating: <%= bookmark.movie.rating %></p>
-          <p>Overview: <%= bookmark.movie.overview %></p>
+          <h2><strong><%= bookmark.movie.title %></strong></h2>
+          <p><%= bookmark.movie.rating %><i class="fas fa-star star-yellow"></i></span></strong></p>
+          <p><%= bookmark.movie.overview %></p>
           <p>Comments: <%= bookmark.comment %></p>
         </div>
     </div>
   <% end %>
+  </div>
